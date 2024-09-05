@@ -1,11 +1,14 @@
 using System.Drawing;
-using Furniro.Domain.Enteties.abstaction;
+using Furniro.Domain.Common.Models;
+using Furniro.Domain.Enteties;
 
-namespace Furniro.Domain.Enteties;
 
-class Category : Base
+namespace Furniro.Domain.Aggregates;
+
+public class Category : BaseClass
 {
-    public string Name { 
+    public string Name 
+    { 
         get => Name; 
         set
         {
@@ -19,8 +22,11 @@ class Category : Base
         } 
     }
 
-    public Image CoverPhoto { 
+    public Image CoverPhoto
+    { 
         get => CoverPhoto ;
         set => CoverPhoto = value;
      }
+
+    public virtual ICollection<Product>? Products { get; set; }
 }

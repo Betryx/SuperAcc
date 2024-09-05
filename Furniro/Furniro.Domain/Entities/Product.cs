@@ -1,9 +1,10 @@
 using System.Drawing;
-using Furniro.Domain.Enteties.abstaction;
+using Furniro.Domain.Common.Models;
+using Furniro.Domain.Aggregates;
 
 namespace Furniro.Domain.Enteties;
 
-class Product : Base
+public class Product : BaseClass
 {
     public string Name { 
         get => Name; 
@@ -92,15 +93,17 @@ class Product : Base
         set => AdditionalPhotos = value;
     }
 
-    public List<string> Sizes
+    public IEnumerable<string> Sizes
     {
         get => Sizes ??= new List<string>();
         set => Sizes = value;
     }
 
-    public List<string> Colors
+    public IEnumerable<string> Colors
     {
         get => Colors ??= new List<string>();
         set => Colors = value;
     }
+
+    public virtual Category Category { get; set; }
 }   	

@@ -1,0 +1,2 @@
+namespace Furniro.Infrastructure.Peristance;
+
