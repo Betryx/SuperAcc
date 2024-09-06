@@ -2,7 +2,7 @@ using System.Drawing;
 using Furniro.Domain.Enteties;
 using Furniro.Domain.Aggregates;
 
-namespace Furniro.Application.Common.Interfaces.Peristance.Abstaction;
+namespace Furniro.Application.Common.Interfaces.Persistance.Abstaction;
 
 public interface IProductRepository : IRepository<Product>
 {

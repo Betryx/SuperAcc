@@ -1,4 +1,4 @@
-using Furniro.Application.Common.Interfaces.Peristance.Abstaction;
+using Furniro.Application.Common.Interfaces.Persistance.Abstaction;
 using Furniro.Domain.Aggregates;
 using Furniro.Domain.Enteties;
 using System.Drawing;

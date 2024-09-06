@@ -2,7 +2,7 @@ using System.Drawing;
 using Furniro.Domain.Aggregates;
 using Microsoft.Build.Tasks.Deployment.Bootstrapper;
 
-namespace Furniro.Application.Common.Interfaces.Peristance;
+namespace Furniro.Application.Common.Interfaces.Persistance;
 
 public interface ICategoryRepository : IRepository<Category>
 {

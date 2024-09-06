@@ -1,4 +1,4 @@
-namespace Furniro.Application.Common.Interfaces.Peristance;
+namespace Furniro.Application.Common.Interfaces.Persistance;
 
 public interface IRepository<TEntity> where TEntity : class
 {
