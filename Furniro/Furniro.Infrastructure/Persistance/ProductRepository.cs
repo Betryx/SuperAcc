@@ -1,99 +1,129 @@
+using Furniro.Application.Common.Interfaces.Persistance;
 using Furniro.Application.Common.Interfaces.Persistance.Abstaction;
 using Furniro.Domain.Aggregates;
 using Furniro.Domain.Enteties;
+using Furniro.Infrastructure.Persistance.Abstraction;
+using Microsoft.EntityFrameworkCore;
 using System.Drawing;
+using System.Linq.Expressions;
 
 namespace Furniro.Infrastructure.Peristance;
 
 public class ProductRepository : IProductRepository
 {
-    public Task CreateAsync(Product entity)
+    private readonly IRepository<Product> _repository;
+
+    public ProductRepository(IRepository<Product> repository)
+
     {
-        throw new NotImplementedException();
+        _repository = repository;
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task CreateAsync(Product product)
     {
-        throw new NotImplementedException();
+        await _repository.CreateAsync(product);
     }
 
-    public Task<List<Image>> GetAdditionalPhotoAsync(Guid id)
+    public async Task DeleteByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        await _repository.DeleteByIdAsync(id);
     }
 
-    public Task<IEnumerable<Product>> GetAllAsync()
+    public async Task<List<Image>> GetAdditionalPhotoAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.AdditionalPhotos.ToList() ?? new List<Image>();
     }
 
-    public Task<Product> GetByIdAsync(Guid id)
+    public async Task<IEnumerable<Product>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _repository.GetAllAsync();
     }
 
-    public Task<Category> GetCategoryAsync()
+    public Task<IEnumerable<Product>> GetAsync(Expression<Func<Product, bool>> predicate)
     {
-        throw new NotImplementedException();
+        return _repository.GetAsync(predicate);
     }
 
-    public Task<Image> GetCoverPhotoAsync(Guid id)
+    public async Task<Product> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        return await _repository.GetByIdAsync(id);
     }
 
-    public Task<DateTime> GetCreationDateAsync(Guid id)
+    public async Task<Category> GetCategoryAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.Category;
     }
 
-    public Task<string> GetDescriptionAsync(Guid id)
+    public async Task<Image> GetCoverPhotoAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.CoverPhoto;
     }
 
-    public Task<int> GetDiscountAsync(Guid id)
+    public async Task<DateTime> GetCreationDateAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.CreationDate ?? DateTime.MinValue;
     }
 
-    public Task<DateTime> GetLastUpdateDateAsync(Guid id)
+    public async Task<string> GetDescriptionAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.Description;
     }
 
-    public Task<bool> GetMarkAsNewAsync(Guid id)
+    public async Task<int> GetDiscountAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.Discount ?? 0;
     }
 
-    public Task<string> GetNameAsync(Guid id)
+    public async Task<DateTime> GetLastUpdateDateAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.LastUpdatedDate ?? DateTime.MinValue;
     }
 
-    public Task<decimal> GetPriceAsync(Guid id)
+    public async Task<bool> GetMarkAsNewAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.MarkAsNew ?? false;
     }
 
-    public Task<int> GetQualityAsync(Guid id)
+    public async Task<string> GetNameAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.Name;
     }
 
-    public Task<string> GetShrotDesciptionAsync(Guid id)
+    public async Task<decimal> GetPriceAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.Price ?? 0;
     }
 
-    public Task<List<string>> GetSizesAsync(Guid id)
+    public async Task<int> GetQualityAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.Quality ?? 0;
     }
 
-    public Task UpdateAsync(Product entity)
+    public async Task<string> GetShrotDesciptionAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _repository.GetByIdAsync(id);
+        return product?.ShortDescription;
+    }
+
+    public async Task<List<string>> GetSizesAsync(Guid id)
+    {
+        var product = await _repository.GetByIdAsync(id);
+        return product?.Sizes.ToList() ?? new List<string>();
+    }
+
+    public async Task UpdateAsync(Product product)
+    {
+        await _repository.UpdateAsync(product);
     }
 }

@@ -6,7 +6,7 @@ namespace Furniro.Application.Common.Interfaces.Persistance;
 
 public interface ICategoryRepository : IRepository<Category>
 {
-    Task<string> GetNameAsync();
-    Task<Image> GetCoverImageAsync();
-    Task<ICollection<Product>> GetProductsInCategoryAsync();
+    Task<string> GetNameAsync(Guid id);
+    Task<Image> GetCoverImageAsync(Guid id);
+    Task<ICollection<Product>> GetProductsInCategoryAsync(Guid id);
 }

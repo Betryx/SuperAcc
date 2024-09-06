@@ -1,11 +1,13 @@
+using System.Linq.Expressions;
+
 namespace Furniro.Application.Common.Interfaces.Persistance;
 
 public interface IRepository<TEntity> where TEntity : class
 {
-    Task<TEntity> GetByIdAsync(Guid id);
+    Task  CreateAsync(TEntity item);
     Task<IEnumerable<TEntity>> GetAllAsync();
-
-    Task CreateAsync(TEntity entity);
-    Task UpdateAsync(TEntity entity);
-    Task DeleteAsync(Guid id);
+    Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> predicate);
+    Task<TEntity> GetByIdAsync(Guid id);
+    Task UpdateAsync(TEntity item);
+    Task DeleteByIdAsync(Guid id);
 }

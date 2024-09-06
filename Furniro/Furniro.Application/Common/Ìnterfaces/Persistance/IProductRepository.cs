@@ -18,6 +18,5 @@ public interface IProductRepository : IRepository<Product>
     Task<Image> GetCoverPhotoAsync(Guid id);
     Task<List<Image>> GetAdditionalPhotoAsync(Guid id);
     Task<List<string>> GetSizesAsync(Guid id);
-    Task<Category> GetCategoryAsync();
-
+    Task<Category> GetCategoryAsync(Guid id);
 }
