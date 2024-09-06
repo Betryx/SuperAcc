@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="logo.png" alt="Furniro Logo" class="logo-image"> <!-- Adjust the image source -->
+                <span>Furniro</span>
+            </div>
+    
+            <!-- Desktop Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+    
+            <!-- Icon Links -->
+            <div class="nav-icons">
+                <a href="#"><i class="user-icon"></i></a>
+                <a href="#"><i class="search-icon"></i></a>
+                <a href="#"><i class="wishlist-icon"></i></a>
+                <a href="#"><i class="cart-icon"></i></a>
+            </div>
+    
+            <!-- Hamburger Menu Icon for Mobile -->
+            <button class="menu-toggle">
+                <i class="hamburger-icon"></i>
+            </button>
+        </div>
+    
+        <!-- Mobile Drawer Menu -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="shop-header">
+        <div class="hero-overlay">
+            <h1>Shop</h1>
+            <nav class="breadcrumb">
+                <a href="#">Home</a> &gt; <span>Cart</span>
+            </nav>
+        </div>
+    </header>
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img class="product-img" src="Potty.png" alt="Product Image"></td>
+                <td>Asgaard Sofa</td>
+                <td>Rs. 250,000.00</td>
+                <td>
+                    <div class="quantity-wrapper">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                </td>
+                <td>Rs. 250,000.00</td>
+                <td><button class="remove-btn"><i class="fas fa-trash"></i></button></td>
+            </tr>
+            <tr>
+                <td><img class="product-img" src="https://via.placeholder.com/200" alt="Product Image"></td>
+                <td>Comfort Chair</td>
+                <td>Rs. 50,000.00</td>
+                <td>
+                    <div class="quantity-wrapper">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="2" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                </td>
+                <td>Rs. 100,000.00</td>
+                <td><button class="remove-btn"><i class="fas fa-trash"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="price-summary">
+        <div class="total-price-wrapper">
+            <span>Total Price: <span id="total-price">Rs. 350,000.00</span></span>
+        </div>
+        <div class="checkout-wrapper">
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    
+   
+    <div class="features-section">
+        <div class="feature-item">
+          <i class="fas fa-trophy"></i>
+          <h3>High Quality</h3>
+          <p>crafted from top materials</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-check-circle"></i>
+          <h3>Warranty Protection</h3>
+          <p>Over 2 years</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-truck"></i>
+          <h3>Free Shipping</h3>
+          <p>Order over 150 $</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-headset"></i>
+          <h3>24 / 7 Support</h3>
+          <p>Dedicated support</p>
+        </div>
+      </div>
+    
+
+
+
+
+      <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>Furniro.</h3>
+                <p>400 University Drive Suite 200 Coral Gables, FL 33134 USA</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter Your Email Address">
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2023 Furniro. All rights reserved</p>
+        </div>
+    </footer>
+ 
+
+
+</body>
+</html>

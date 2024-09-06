@@ -5,29 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Furniro - Discover Our Collection</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/custom-elements/1.4.2/custom-elements.min.js"></script>
+
+
+    
+
 </head>
 <body>
-
+   
     <!-- Navbar -->
-    <nav>
-        <div class="logo">Furniro</div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="logo.png" alt="Furniro Logo" class="logo-image"> <!-- Adjust the image source -->
+                <span>Furniro</span>
+            </div>
+    
+            <!-- Desktop Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+    
+            <!-- Icon Links -->
+            <div class="nav-icons">
+                <a href="#"><i class="user-icon"></i></a>
+                <a href="#"><i class="search-icon"></i></a>
+                <a href="#"><i class="wishlist-icon"></i></a>
+                <a href="#"><i class="cart-icon"></i></a>
+            </div>
+    
+            <!-- Hamburger Menu Icon for Mobile -->
+            <button class="menu-toggle">
+                <i class="hamburger-icon"></i>
+            </button>
+        </div>
+    
+        <!-- Mobile Drawer Menu -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-text">
-            <h1>Discover Our New Collection</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
-            <a href="#" class="btn">Buy Now</a>
-        </div>
-        <div class="hero-image">
-            <img src="scandiv.png" alt="Hero Image">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-paragraph">New Arival</p>
+                <h1 class="fontier">Discover Our New Collection</h1>
+                
+                <button class="btn"><h3>BUY NOW</h3></button>
+            </div>
         </div>
     </section>
 
@@ -49,27 +87,136 @@
             </div>
         </div>
     </section>
-    <div class="products-section">
+
+    <!-- Products Section -->
+    <section class="products-section">
         <h2>Our Products</h2>
-        <div class="product-card">
-            <img src="img/sytherine.jpg" alt="Sytherine">
-            <div class="product-overlay">
-                <button>Add to Cart</button>
-                <div class="actions">
-                    <span>Share</span>
-                    <span>Compare</span>
-                    <span>Like</span>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="sylthe.png" alt="Sytherine">
+                <div class="product-overlay">
+                    <button>Add to Cart</button>
+                    <div class="actions">
+                        <span>Share</span>
+                        <span>Compare</span>
+                        <span>Like</span>
+                    </div>
+                </div>
+                <div class="badge">-30%</div>
+                <h3>Sytherine</h3>
+                <p>Stylish cafe chair</p>
+                <div class="price">
+                    <span class="new-price">Rp 2.500.000</span>
+                    <span class="old-price">Rp 3.600.000</span>
                 </div>
             </div>
-            <div class="badge">-30%</div>
-            <h3>Sytherine</h3>
-            <p>Stylish cafe chair</p>
-            <div class="price">
-                <span class="new-price">Rp 2.500.000</span>
-                <span class="old-price">Rp 3.600.000</span>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="img/leviosa.jpg" alt="Leviosa">
+                <div class="product-overlay">
+                    <button>Add to Cart</button>
+                    <div class="actions">
+                        <span>Share</span>
+                        <span>Compare</span>
+                        <span>Like</span>
+                    </div>
+                </div>
+                <div class="badge">-30%</div>
+                <h3>Leviosa</h3>
+                <p>Stylish cafe chair</p>
+                <div class="price">
+                    <span class="new-price">Rp 2.500.000</span>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="img/lolito.jpg" alt="Lolito">
+                <div class="product-overlay">
+                    <button>Add to Cart</button>
+                    <div class="actions">
+                        <span>Share</span>
+                        <span>Compare</span>
+                        <span>Like</span>
+                    </div>
+                </div>
+                <div class="badge">-50%</div>
+                <h3>Lolito</h3>
+                <p>Luxury big sofa</p>
+                <div class="price">
+                    <span class="new-price">Rp 7.000.000</span>
+                    <span class="old-price">Rp 14.000.000</span>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="img/respira.jpg" alt="Respira">
+                <div class="product-overlay">
+                    <button>Add to Cart</button>
+                    <div class="actions">
+                        <span>Share</span>
+                        <span>Compare</span>
+                        <span>Like</span>
+                    </div>
+                </div>
+                <h3>Respira</h3>
+                <p>Outdoor bar table and stool</p>
+                <div class="price">Rp 500.000</div>
+            </div>
+
+            <!-- Add more products as needed -->
+        </div>
+        <div class="show-more">
+            <button>Show More</button>
+        </div>
+    </section>
+    
+   
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>Furniro.</h3>
+                <p>400 University Drive Suite 200 Coral Gables, FL 33134 USA</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter Your Email Address">
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                </div>
             </div>
         </div>
-      </div>
-
+        <div class="footer-bottom">
+            <p>2023 Furniro. All rights reserved</p>
+        </div>
+    </footer>
+    
+    
+    
+    
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/components/carousel/carousel.js"></script>
 </body>
 </html>

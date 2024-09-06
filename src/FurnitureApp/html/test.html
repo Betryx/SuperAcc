@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniro - Discover Our Collection</title>
+    <title>Contact Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="test.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-   
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
             <!-- Logo -->
@@ -51,123 +50,83 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <p class="hero-paragraph">New Arival</p>
-                <h1 class="fontier">Discover Our New Collection</h1>
+    <header class="shop-header">
+        <div class="hero-overlay">
+            <h1>Shop</h1>
+            <nav class="breadcrumb">
+                <a href="#">Home</a> &gt; <span>Contact</span>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-info">
+                <h1>Get In Touch With Us</h1>
+                <p>For More Information About Our Product & Services, Please Feel Free To Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!</p>
                 
-                <button class="btn"><h3>BUY NOW</h3></button>
+                <div class="info">
+                    <div class="address">
+                        <p><strong>Address</strong></p>
+                        <p>236 5th SE Avenue, New York NY10000, United States</p>
+                    </div>
+
+                    <div class="phone">
+                        <p><strong>Phone</strong></p>
+                        <p>Mobile: (+84) 546-6789</p>
+                        <p>Hotline: (+84) 456-6789</p>
+                    </div>
+
+                    <div class="working-time">
+                        <p><strong>Working Time</strong></p>
+                        <p>Monday-Friday: 9:00 - 22:00</p>
+                        <p>Saturday-Sunday: 9:00 - 21:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form>
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" name="name" placeholder="Abc" required>
+
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="Abc@def.com" required>
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="This is an optional">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Hi! I’d like to ask about" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
     </section>
-
-    <!-- Categories Section -->
-    <section class="categories">
-        <h2>Browse Our Categories</h2>
-        <div class="categories-grid">
-            <div class="category">
-                <img src="image_106.png" alt="Dining">
-                <div class="category-title">Dining</div>
-            </div>
-            <div class="category">
-                <img src="Image-living-room.png" alt="Living">
-                <div class="category-title">Living</div>
-            </div>
-            <div class="category">
-                <img src="image 101.png" alt="Bedroom">
-                <div class="category-title">Bedroom</div>
-            </div>
+    <div class="features-section">
+        <div class="feature-item">
+          <i class="fas fa-trophy"></i>
+          <h3>High Quality</h3>
+          <p>crafted from top materials</p>
         </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products-section">
-        <h2>Our Products</h2>
-        <div class="product-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <img src="sylthe.png" alt="Sytherine">
-                <div class="product-overlay">
-                    <button>Add to Cart</button>
-                    <div class="actions">
-                        <span>Share</span>
-                        <span>Compare</span>
-                        <span>Like</span>
-                    </div>
-                </div>
-                <div class="badge">-30%</div>
-                <h3>Sytherine</h3>
-                <p>Stylish cafe chair</p>
-                <div class="price">
-                    <span class="new-price">Rp 2.500.000</span>
-                    <span class="old-price">Rp 3.600.000</span>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <img src="img/leviosa.jpg" alt="Leviosa">
-                <div class="product-overlay">
-                    <button>Add to Cart</button>
-                    <div class="actions">
-                        <span>Share</span>
-                        <span>Compare</span>
-                        <span>Like</span>
-                    </div>
-                </div>
-                <div class="badge">-30%</div>
-                <h3>Leviosa</h3>
-                <p>Stylish cafe chair</p>
-                <div class="price">
-                    <span class="new-price">Rp 2.500.000</span>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <img src="img/lolito.jpg" alt="Lolito">
-                <div class="product-overlay">
-                    <button>Add to Cart</button>
-                    <div class="actions">
-                        <span>Share</span>
-                        <span>Compare</span>
-                        <span>Like</span>
-                    </div>
-                </div>
-                <div class="badge">-50%</div>
-                <h3>Lolito</h3>
-                <p>Luxury big sofa</p>
-                <div class="price">
-                    <span class="new-price">Rp 7.000.000</span>
-                    <span class="old-price">Rp 14.000.000</span>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <img src="img/respira.jpg" alt="Respira">
-                <div class="product-overlay">
-                    <button>Add to Cart</button>
-                    <div class="actions">
-                        <span>Share</span>
-                        <span>Compare</span>
-                        <span>Like</span>
-                    </div>
-                </div>
-                <h3>Respira</h3>
-                <p>Outdoor bar table and stool</p>
-                <div class="price">Rp 500.000</div>
-            </div>
-
-            <!-- Add more products as needed -->
+        <div class="feature-item">
+          <i class="fas fa-check-circle"></i>
+          <h3>Warranty Protection</h3>
+          <p>Over 2 years</p>
         </div>
-        <div class="show-more">
-            <button>Show More</button>
+        <div class="feature-item">
+          <i class="fas fa-truck"></i>
+          <h3>Free Shipping</h3>
+          <p>Order over 150 $</p>
         </div>
-    </section>
-    <footer class="footer">
+        <div class="feature-item">
+          <i class="fas fa-headset"></i>
+          <h3>24 / 7 Support</h3>
+          <p>Dedicated support</p>
+        </div>
+      </div>
+      <footer class="footer">
         <div class="footer-content">
             <div class="footer-left">
                 <h3>Furniro.</h3>
@@ -204,6 +163,8 @@
             <p>2023 Furniro. All rights reserved</p>
         </div>
     </footer>
+
+    
 
 </body>
 </html>
