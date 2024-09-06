@@ -1,5 +1,3 @@
-using Furniro.Application.Common.Interfaces.Persistance.Abstaction;
-using Furniro.Application.Common.Interfaces.Persistance;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Furniro.Application.Common;
