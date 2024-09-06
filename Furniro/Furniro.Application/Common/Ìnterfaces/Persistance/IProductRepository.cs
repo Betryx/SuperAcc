@@ -15,8 +15,8 @@ public interface IProductRepository : IRepository<Product>
     Task<int> GetDiscountAsync(Guid id);
     Task<int> GetQualityAsync(Guid id);
     Task<bool> GetMarkAsNewAsync(Guid id);
-    Task<Image> GetCoverPhotoAsync(Guid id);
-    Task<List<Image>> GetAdditionalPhotoAsync(Guid id);
+    Task<byte[]> GetCoverPhotoAsync(Guid id);
+    Task<List<byte[]>> GetAdditionalPhotoAsync(Guid id);
     Task<List<string>> GetSizesAsync(Guid id);
     Task<Category> GetCategoryAsync(Guid id);
 }

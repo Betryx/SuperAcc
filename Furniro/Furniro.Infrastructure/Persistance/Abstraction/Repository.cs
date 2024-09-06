@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Furniro.Infrastructure.Persistance.Abstraction
 {
-    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseClass
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseClass
     {
         private readonly FurniroDbContext _context;
         private readonly DbSet<TEntity> _dbSet;

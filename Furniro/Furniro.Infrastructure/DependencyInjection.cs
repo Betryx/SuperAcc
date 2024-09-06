@@ -1,31 +1,25 @@
 using Furniro.Application.Common.Interfaces.Persistance;
 using Furniro.Application.Common.Interfaces.Persistance.Abstaction;
 using Furniro.Infrastructure.Peristance;
+using Furniro.Infrastructure.Persistance.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.CompilerServices;
 
 namespace Furniro.Infrastructure;
 
-public class DependencyInjectionContainer
+public static class DependencyInjectionContainer
 {
-    public static IServiceCollection ConfigureServices()
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, string connectionString)
     {
-        var services = new ServiceCollection();
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
 
         services.AddDbContext<FurniroDbContext>(options =>
-        {
-            options.UseSqlServer("postgresql://postgres:qnWkPdDiXMklLzUEyUybNrZkZPolVrnM@autorack.proxy.rlwy.net:38574/railway");
-
-        });
-
-        services.AddTransient<IProductRepository, ProductRepository>();
-        services.AddTransient<ICategoryRepository, CategoryRepository>();
-
+                options.UseSqlServer(connectionString));
+  
         return services;
-    }
-
-    public static IServiceProvider BuildServiceProvider(IServiceCollection services)
-    {
-        return services.BuildServiceProvider();
     }
 }   

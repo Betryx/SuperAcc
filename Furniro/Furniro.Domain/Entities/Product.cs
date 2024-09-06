@@ -76,7 +76,14 @@ public class Product : BaseClass
         set => MarkAsNew = value;
     }
 
-    public Image CoverPhoto
+    public string FileName
+    {
+        get => FileName;
+        set => FileName = value;
+    }
+
+
+    public byte[] CoverPhoto
     {
         get => CoverPhoto;
         set
@@ -87,9 +94,9 @@ public class Product : BaseClass
         }
     }
 
-    public List<Image> AdditionalPhotos
+    public List<byte[]> AdditionalPhotos
     {
-        get => AdditionalPhotos ??= new List<Image>();
+        get => AdditionalPhotos;
         set => AdditionalPhotos = value;
     }
 
@@ -106,4 +113,6 @@ public class Product : BaseClass
     }
 
     public virtual Category Category { get; set; }
+
+    public Guid CategoryId { get; set; }
 }   	

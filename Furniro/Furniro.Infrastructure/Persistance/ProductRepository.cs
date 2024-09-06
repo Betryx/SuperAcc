@@ -29,10 +29,10 @@ public class ProductRepository : IProductRepository
         await _repository.DeleteByIdAsync(id);
     }
 
-    public async Task<List<Image>> GetAdditionalPhotoAsync(Guid id)
+    public async Task<List<byte[]>> GetAdditionalPhotoAsync(Guid id)
     {
         var product = await _repository.GetByIdAsync(id);
-        return product?.AdditionalPhotos.ToList() ?? new List<Image>();
+        return product.AdditionalPhotos.ToList() ?? new List<byte[]>();
     }
 
     public async Task<IEnumerable<Product>> GetAllAsync()
@@ -56,7 +56,7 @@ public class ProductRepository : IProductRepository
         return product?.Category;
     }
 
-    public async Task<Image> GetCoverPhotoAsync(Guid id)
+    public async Task<byte[]> GetCoverPhotoAsync(Guid id)
     {
         var product = await _repository.GetByIdAsync(id);
         return product?.CoverPhoto;

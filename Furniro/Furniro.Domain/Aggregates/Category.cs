@@ -22,9 +22,9 @@ public class Category : BaseClass
         } 
     }
 
-    public Image CoverPhoto
+    public byte[] CoverPhoto
     { 
-        get => CoverPhoto ;
+        get => CoverPhoto;
         set => CoverPhoto = value;
      }
 
