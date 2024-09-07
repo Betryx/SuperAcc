@@ -140,111 +140,120 @@ body {
 }
 
 /* Hero Section */
+/* General Hero Section */
+/* General Hero Section */
 .hero {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Align content to the right */
+    justify-content: flex-end; /* Align content more to the right */
     padding: 50px;
     background: url('scandiv.png') no-repeat center center/cover;
     position: relative;
-    height: 100vh; /* Full height for better centering */
-    background-size: 120% auto; /* Make background image larger */
+    height: 100vh; /* Full height */
+    background-size: cover; /* Adjust background size */
 }
 
 /* Updated Text Container */
 .hero-text {
-    width: 80%; /* Increase width to make it wider */
-    background: #FFF3E3; /* Set background color */
+    width: 90%; /* Increase width for wider text */
+    max-width: 700px; /* Increase max-width */
+    background: #FFF3E3;
     padding: 20px;
     border-radius: 10px;
-    text-align: left; /* Align text to the left */
+    text-align: left;
     position: relative;
-    margin-left: auto; /* Push div to the right */
-    margin-right: 0; /* No margin on the right */
+    margin-left: auto; /* Push it more to the right */
+    margin-right: 50px; /* Add margin-right for better positioning */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Space between elements */
-    height: 400px; /* Set a fixed height for the div */
+    justify-content: space-between;
+    height: auto;
 }
 
 /* Header Style */
 .hero-text h1 {
     font-family: 'Poppins', sans-serif;
-    top: 75px; /* Apply font-family */
-    font-size: 52px; /* Set font size */
-    font-weight: 700; /* Set font weight */
-    line-height: 65px; /* Set line height */
-    color: #B88E2F; /* Set text color */
-    text-align: left; /* Align text to the left */
+    font-size: 2rem; /* Relative font size */
+    font-weight: 700;
+    line-height: 1.2;
+    color: #B88E2F;
     margin-bottom: 20px;
-    height: 750px; /* Add some space below the header */
 }
 
 /* Paragraph Style */
-.hero-paragraph {
-    width: 123px; /* Set width */
-    height: 24px; /* Set height */
-    position: absolute; /* Positioning the element */
-    top: 10px; /* Vertical positioning */
-    left: 35px; /* Horizontal positioning */
-    gap: 0px; /* No gap */
-    opacity: 1; /* Set opacity to 1 for visibility */
-    font-family: 'Poppins', sans-serif; /* Set font family */
-    font-size: 16px; /* Set font size */
-    font-weight: 600; /* Set font weight */
-    line-height: 24px; /* Set line height */
-    letter-spacing: 3px; /* Set letter spacing */
-    text-align: left; /* Align text to the left */
-    color: #333333; /* Set text color */
+.hero-paragraph  {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #333333;
+}
+.bottom-paragraph {
+    margin-bottom: 30%;
+    margin-left: 10%;
+    white-space: nowrap;
+    justify-content: flex-start;
+    width: 40%;
 }
 
 /* Updated Button Style */
 .hero-text .btn {
-    width: 222px; /* Fixed width */
-    height: 74px; /* Fixed height */
-    padding: 25px 72px; /* Fixed padding */
-    background-color: #B88E2F; /* Set button color */
+    width: 100%; /* Full-width for button */
+    padding: 15px;
+    background-color: #B88E2F;
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 20px; /* Adjust font size if needed */
-    border-radius: 0; /* Remove border radius */
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-align: center;
     text-decoration: none;
-    position: absolute;
-    bottom: 20px; /* Position button at the bottom */
-    left: 20px; /* Position button on the left side of the .hero-text div */
-    opacity: 1; /* Make sure opacity is set to visible */
-    gap: 10px; /* Add spacing between text and icons if needed */
+    margin-top: 20px;
 }
 
-
 /* Responsive Adjustments */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .hero-text {
-        width: 80%; /* Adjust width for smaller screens */
-        height: auto; /* Allow height to be auto for better responsiveness */
+        width: 85%; /* Adjust width for smaller screens */
+        max-width: 600px; /* Adjust max-width */
+        margin-right: 30px; /* Reduce margin-right */
     }
-    
-    .hero-text .btn {
-        width: 180px; /* Adjust button width for smaller screens */
-        height: 60px; /* Adjust button height for smaller screens */
-        padding: 20px 50px; /* Adjust padding for smaller screens */
-        font-size: 16px; /* Adjust font size for smaller screens */
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 30px;
+        justify-content: center; /* Center text on smaller screens */
+    }
+
+    .hero-text {
+        width: 80%; /* Adjust width for tablets */
+        padding: 15px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .hero-text {
-        width: 90%; /* Further adjust width for very small screens */
+        width: 100%; /* Full width for mobile */
+        padding: 10px;
+        margin: 0;
     }
-    
+
+    .hero-text h1 {
+        font-size: 2rem; /* Smaller font size for mobile */
+        line-height: 1.2;
+    }
+
+    .hero-paragraph, .bottom-paragraph {
+        font-size: 0.9rem; /* Adjust paragraph font size */
+    }
+
     .hero-text .btn {
-        width: 150px; /* Further adjust button width for very small screens */
-        height: 50px; /* Further adjust button height for very small screens */
-        padding: 15px 40px; /* Further adjust padding for very small screens */
-        font-size: 14px; /* Further adjust font size for very small screens */
+        font-size: 0.9rem; /* Smaller button for mobile */
+        padding: 10px;
     }
 }
+
 .categories {
     text-align: center;
     padding: 50px;
@@ -1284,3 +1293,10 @@ sl-carousel::part(indicator) {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       border-radius:30px;
     }}
+.bottom-paragraph {
+    margin-bottom: 130px; /* Adjust the value as needed */
+    text-align: center; /* Center the paragraph */
+    font-size: 18px; /* Adjust the font size as needed */
+    color: #333; /* Adjust the text color as needed */
+    margin-right: 350px;
+}
