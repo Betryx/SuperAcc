@@ -1,13 +1,14 @@
+using Furniro.Domain.Common.Models;
+using System.Buffers.Text;
 using System.Linq.Expressions;
 
 namespace Furniro.Application.Common.Interfaces.Persistance;
 
-public interface IRepository<TEntity> where TEntity : class
+public interface IRepository<T> where T : BaseClass
 {
-    Task  CreateAsync(TEntity item);
-    Task<IEnumerable<TEntity>> GetAllAsync();
-    Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> predicate);
-    Task<TEntity> GetByIdAsync(Guid id);
-    Task UpdateAsync(TEntity item);
+    Task  CreateAsync(T item);
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<T> GetByIdAsync(Guid id);
+    Task UpdateAsync(T item);
     Task DeleteByIdAsync(Guid id);
 }

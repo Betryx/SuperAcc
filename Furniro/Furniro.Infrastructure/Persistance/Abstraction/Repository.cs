@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace Furniro.Infrastructure.Persistance.Abstraction
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseClass
+    public class Repository<T> : IRepository<T> where T : BaseClass
     {
         private readonly FurniroDbContext _context;
-        private readonly DbSet<TEntity> _dbSet;
+        private readonly DbSet<T> _dbSet;
         public Repository(FurniroDbContext context)
         {
             _context = context;
-            _dbSet = _context.Set<TEntity>();
+            _dbSet = _context.Set<T>();
         }
-        public async Task CreateAsync(TEntity item)
+        public async Task CreateAsync(T item)
         {
             await _dbSet.AddAsync(item);
             await _context.SaveChangesAsync();
@@ -39,23 +39,17 @@ namespace Furniro.Infrastructure.Persistance.Abstraction
             }
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            return await _dbSet.Where(predicate)
-                .ToListAsync();
-        }
-
-        public async Task<TEntity> GetByIdAsync(Guid id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
             return await _dbSet.FindAsync(id);
         }
 
-        public async Task UpdateAsync(TEntity item)
+        public async Task UpdateAsync(T item)
         {
             _context.Entry(item).State = EntityState.Modified;
             _dbSet.Update(item);

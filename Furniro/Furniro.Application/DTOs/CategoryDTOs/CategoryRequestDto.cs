@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Furniro.Application.DTOs.CategoryDTOs
 {
-    public class CategoryInputDto
+    public class CategoryRequestDto
     {
+        public string Name { get; set; }
+        public byte[] CoverPhoto { get; set; }
     }
 }

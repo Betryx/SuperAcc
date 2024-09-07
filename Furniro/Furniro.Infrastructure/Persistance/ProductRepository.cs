@@ -1,8 +1,10 @@
 using Furniro.Application.Common.Interfaces.Persistance;
 using Furniro.Application.Common.Interfaces.Persistance.Abstaction;
+using Furniro.Application.DTOs.CategoryDTOs;
 using Furniro.Domain.Aggregates;
 using Furniro.Domain.Enteties;
 using Furniro.Infrastructure.Persistance.Abstraction;
+using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Drawing;
 using System.Linq.Expressions;
@@ -12,11 +14,13 @@ namespace Furniro.Infrastructure.Peristance;
 public class ProductRepository : IProductRepository
 {
     private readonly IRepository<Product> _repository;
+    private readonly IMapper _mapper;
 
-    public ProductRepository(IRepository<Product> repository)
+    public ProductRepository(IRepository<Product> repository, IMapper mapper)
 
     {
         _repository = repository;
+        _mapper = mapper;
     }
 
     public async Task CreateAsync(Product product)
@@ -40,20 +44,19 @@ public class ProductRepository : IProductRepository
         return await _repository.GetAllAsync();
     }
 
-    public Task<IEnumerable<Product>> GetAsync(Expression<Func<Product, bool>> predicate)
-    {
-        return _repository.GetAsync(predicate);
-    }
-
     public async Task<Product> GetByIdAsync(Guid id)
     {
         return await _repository.GetByIdAsync(id);
     }
 
-    public async Task<Category> GetCategoryAsync(Guid id)
+    public async Task<CategoryResponceDto> GetCategoryAsync(Guid id)
     {
-        var product = await _repository.GetByIdAsync(id);
-        return product?.Category;
+        var category = await _repository.GetByIdAsync(id);
+
+        var categoryDto = _mapper.Map<CategoryResponceDto>(category);
+
+        // Step 4: Return the mapped DTO
+        return categoryDto;
     }
 
     public async Task<byte[]> GetCoverPhotoAsync(Guid id)

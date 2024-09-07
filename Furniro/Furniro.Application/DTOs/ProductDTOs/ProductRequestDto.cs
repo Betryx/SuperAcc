@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Furniro.Application.DTOs.ProductDTOs
 {
-    public class ProductInputDto
+    public class ProductRequestDto
     {
         public string Name { get; set; }
         public string ShortDescription { get; set; }

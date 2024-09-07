@@ -1,5 +1,8 @@
 using Furniro.Application.Common.Interfaces.Persistance;
+using Furniro.Application.DTOs.CategoryDTOs;
+using Furniro.Application.DTOs.ProductDTOs;
 using Furniro.Domain.Aggregates;
+using MapsterMapper;
 using Microsoft.Build.Tasks.Deployment.Bootstrapper;
 using Microsoft.EntityFrameworkCore;
 using System.Drawing;
@@ -10,16 +13,19 @@ namespace Furniro.Infrastructure.Peristance;
 public class CategoryRepository : ICategoryRepository
 {
     private readonly IRepository<Category> _repository;
+    private readonly IMapper _mapper;
 
-    public CategoryRepository(IRepository<Category> repository)
+    public CategoryRepository(IRepository<Category> repository, IMapper mapper)
     {
         _repository = repository;
-
+        _mapper = mapper;
     }
 
-    public async Task CreateAsync(Category category)
+    public async Task CreateAsync(CategoryRequestDto category)
     {
-        await _repository.CreateAsync(category);
+        var item = _mapper.Map<Category>(category);
+
+        await _repository.CreateAsync(item);
     }
 
     public async Task DeleteAsync(Guid id)
@@ -32,19 +38,17 @@ public class CategoryRepository : ICategoryRepository
         await _repository.DeleteByIdAsync(id);
     }
 
-    public async Task<IEnumerable<Category>> GetAllAsync()
+    public async Task<IEnumerable<CategoryResponceDto>> GetAllAsync()
     {
-        return await _repository.GetAllAsync();
+        var list = await _repository.GetAllAsync();
+
+        return _mapper.Map<List<CategoryResponceDto>>(list);
     }
 
-    public async Task<IEnumerable<Category>> GetAsync(Expression<Func<Category, bool>> predicate)
+    public async Task<CategoryResponceDto> GetByIdAsync(Guid id)
     {
-        return await _repository.GetAsync(predicate);
-    }
-
-    public async Task<Category> GetByIdAsync(Guid id)
-    {
-        return await _repository.GetByIdAsync(id);
+        var item = await _repository.GetByIdAsync(id);
+        return _mapper.Map<CategoryResponceDto>(item);
     }
 
     public async Task<Image> GetCoverImageAsync(Guid id)
@@ -60,13 +64,14 @@ public class CategoryRepository : ICategoryRepository
         return category?.Name;
     }
 
-    public Task<ICollection<Product>> GetProductsInCategoryAsync(Guid id)
+    public Task<ICollection<ProductResponceDto>> GetProductsInCategoryAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public async Task UpdateAsync(Category category)
+    public async Task UpdateAsync(CategoryRequestDto category)
     {
-        await _repository.UpdateAsync(category);
+        var item = _mapper.Map<Category>(category);
+        await _repository.UpdateAsync(item);
     }
 }

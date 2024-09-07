@@ -3,6 +3,7 @@ using Furniro.Application.Common.Interfaces.Persistance;
 using Furniro.Infrastructure.Peristance;
 using Furniro.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Furniro.Application.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddInfrastructure(connectionString);
+
+builder.Services.AddApplication();
 
 var app = builder.Build();
 

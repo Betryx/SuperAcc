@@ -1,6 +1,7 @@
 using System.Drawing;
 using Furniro.Domain.Enteties;
 using Furniro.Domain.Aggregates;
+using Furniro.Application.DTOs.CategoryDTOs;
 
 namespace Furniro.Application.Common.Interfaces.Persistance.Abstaction;
 
@@ -18,5 +19,5 @@ public interface IProductRepository : IRepository<Product>
     Task<byte[]> GetCoverPhotoAsync(Guid id);
     Task<List<byte[]>> GetAdditionalPhotoAsync(Guid id);
     Task<List<string>> GetSizesAsync(Guid id);
-    Task<Category> GetCategoryAsync(Guid id);
+    Task<CategoryResponceDto> GetCategoryAsync(Guid id);
 }
